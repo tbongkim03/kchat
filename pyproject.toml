@@ -27,3 +27,5 @@ pythonpath = 'src'
 
 [project.scripts]
 kchat-ping = 'kchat.cli:ping'
+kchat-p = 'kchat.kafka.pro:kchat_p'
+kchat-c = 'kchat.kafka.con:kchat_c'
