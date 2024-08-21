@@ -22,17 +22,15 @@ consumer_timeout_ms=5000
 
 ### launch on two terminal tabs
 
-    1. first tab : `$ python src/kchat/kafka/con.py`
-    
+ 1. first tab : `$ python src/kchat/kafka/con.py`
     `[Start] get consumer`
 
-    2. second tab : `$ python src/kchat/kafka/pro.py`
-    
+ 2. second tab : `$ python src/kchat/kafka/pro.py`
     `[DONE]:  0.020064353942871094`
 
-    3. first tab :
-    
-    `ConsumerRecord(topic='topic1', partition=0, offset=80, timestamp=1724211818595, timestamp_type=0, key=None, value={'str': 'value0'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
+ 3. first tab :
+```
+ConsumerRecord(topic='topic1', partition=0, offset=80, timestamp=1724211818595, timestamp_type=0, key=None, value={'str': 'value0'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
 ConsumerRecord(topic='topic1', partition=0, offset=81, timestamp=1724211818598, timestamp_type=0, key=None, value={'str': 'value1'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
 ConsumerRecord(topic='topic1', partition=0, offset=82, timestamp=1724211818600, timestamp_type=0, key=None, value={'str': 'value2'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
 ConsumerRecord(topic='topic1', partition=0, offset=83, timestamp=1724211818602, timestamp_type=0, key=None, value={'str': 'value3'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
@@ -42,8 +40,8 @@ ConsumerRecord(topic='topic1', partition=0, offset=86, timestamp=1724211818613, 
 ConsumerRecord(topic='topic1', partition=0, offset=87, timestamp=1724211818615, timestamp_type=0, key=None, value={'str': 'value7'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
 ConsumerRecord(topic='topic1', partition=0, offset=88, timestamp=1724211818617, timestamp_type=0, key=None, value={'str': 'value8'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
 ConsumerRecord(topic='topic1', partition=0, offset=89, timestamp=1724211818619, timestamp_type=0, key=None, value={'str': 'value9'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)`
-
-    4. first tab :
+```
+ 4. first tab :
     ~5 seconds later~
     `[End] get consumer`
 
