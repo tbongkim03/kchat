@@ -2,7 +2,6 @@ from kafka import KafkaProducer
 import time
 import json
 
-
 pro = KafkaProducer(
         bootstrap_servers=['localhost:9092'],
         value_serializer=lambda x: json.dumps(x).encode('utf-8'))
@@ -26,7 +25,7 @@ def kchat_p():
     while True:
         inp=input("입력: ")
         data={"message": inp}
-        pro.send('message', value=data)
+        pro.send('chat', value=data)
         pro.flush()
         if inp == 'exit':
             print('종료합니다.')
