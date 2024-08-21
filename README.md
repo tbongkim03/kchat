@@ -30,16 +30,16 @@ consumer_timeout_ms=5000
 
  3. first tab :
 ```
-ConsumerRecord(topic='topic1', partition=0, offset=80, timestamp=1724211818595, timestamp_type=0, key=None, value={'str': 'value0'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=81, timestamp=1724211818598, timestamp_type=0, key=None, value={'str': 'value1'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=82, timestamp=1724211818600, timestamp_type=0, key=None, value={'str': 'value2'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=83, timestamp=1724211818602, timestamp_type=0, key=None, value={'str': 'value3'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=84, timestamp=1724211818609, timestamp_type=0, key=None, value={'str': 'value4'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=85, timestamp=1724211818611, timestamp_type=0, key=None, value={'str': 'value5'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=86, timestamp=1724211818613, timestamp_type=0, key=None, value={'str': 'value6'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=87, timestamp=1724211818615, timestamp_type=0, key=None, value={'str': 'value7'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=88, timestamp=1724211818617, timestamp_type=0, key=None, value={'str': 'value8'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)
-ConsumerRecord(topic='topic1', partition=0, offset=89, timestamp=1724211818619, timestamp_type=0, key=None, value={'str': 'value9'}, headers=[], checksum=None, serialized_key_size=-1, serialized_value_size=17, serialized_header_size=-1)`
+offset=80, value={'str': 'value0'}
+offset=81, value={'str': 'value1'}
+offset=82, value={'str': 'value2'}
+offset=83, value={'str': 'value3'}
+offset=84, value={'str': 'value4'}
+offset=85, value={'str': 'value5'}
+offset=86, value={'str': 'value6'}
+offset=87, value={'str': 'value7'}
+offset=88, value={'str': 'value8'}
+offset=89, value={'str': 'value9'}
 ```
  4. first tab :
     ~5 seconds later~
@@ -60,4 +60,44 @@ ConsumerRecord(topic='topic1', partition=0, offset=89, timestamp=1724211818619, 
 {"str": "value7"}
 {"str": "value8"}
 {"str": "value9"}
+```
+
+## 0.3.0 create src/kchat/kafka/chat.py & pchat.py..
+
+- Python chat program using Apache Kafka
+
+```python
+# pchat.py code~
+
+data={"message": inp, "time": time.time()}
+pro.send('chat', value=data)
+```
+
+```python
+# chat.py code~
+
+print(f"[FRIEND] {msg.value['message']}, 현재시간: {msg.value['time']}")
+```
+
+### result
+- first tab
+```
+$ python src/kchat/kafka/pchat.py
+
+입력: hello
+입력: hi
+입력: exit
+종료합니다.
+```
+
+- second tab
+```
+$ python src/kchat/kafka/chat.py
+
+채팅 프로그램 - 메시지 수신
+메시지 대기 중 ...
+[FRIEND] hello, 현재시간: 1724228825536
+[FRIEND] hi, 현재시간: 1724228845940
+[FRIEND] exit, 현재시간: 1724228847115
+^C채팅 종료
 ```
