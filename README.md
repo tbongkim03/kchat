@@ -4,6 +4,8 @@
 
 ## 0.2.0 create src/kchat/kafka/pro.py..
 
+- Python chat program using Apache Kafka
+
 ```python
 data = {'str': 'value' + str(i)}
 pro.send('topic1', value=data) 
@@ -13,6 +15,7 @@ pro.send('topic1', value=data)
 
 `$ Python src/kchat/kafka/pro.py`
 
+`[DONE]:  0.020064353942871094`
 ### result
 `$ KAFKA_HOME/bin/kafka-console-consumer.sh --topic topic1 --from-beginning --bootstrap-server localhost:9092`
 
