@@ -101,3 +101,48 @@ $ python src/kchat/kafka/chat.py
 [FRIEND] exit, 현재시간: 1724228847115
 ^C채팅 종료
 ```
+
+## 0.4.0 create src/kchat/kafka/proAndcon.py & proAndcon2.py..
+
+- Python chat program using Apache Kafka
+
+```python
+def pro():
+    pass
+
+def con():
+    pass
+
+thread_1 = threading.Thread(target = pro)
+thread_2 = threading.Thread(target = con)
+
+thread_1.start()
+thread_2.start()
+```
+
+### result
+
+- first tab
+```
+python src/kchat/kafka/proAndcon.py
+채팅 프로그램
+메시지 대기 중 ...
+입력: hello
+[bong] bong이 나한테 메시지를 보내고있어, 현재시간: 1724298076.7618182
+들리나 오바
+[bong] 아아아아아ㅏ아, 현재시간: 1724298125.584891
+히히히ㅣ히
+```
+
+- second tab
+```
+python src/kchat/kafka/proAndcon.py
+채팅 프로그램
+메시지 대기 중 ...
+입력: [tae] hello, 현재시간: 1724297815.439126
+bong이 나한테 메시지를 보내고있어
+[tae] 들리나오바, 현재시간: 1724298064.4108975
+아아아아아ㅏ아
+[tae] 히히히ㅣ히, 현재시간: 1724298123.0562499
+
+```

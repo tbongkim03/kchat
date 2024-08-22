@@ -3,12 +3,12 @@ import time
 import json
 
 pro = KafkaProducer(
-        bootstrap_servers=['localhost:9092'],
+        bootstrap_servers=['ec2-3-39-223-117.ap-northeast-2.compute.amazonaws.com:9092'],
         value_serializer=lambda x: json.dumps(x).encode('utf-8'))
 
 start = time.time()
 for i in range(10):
-    data = {'str': 'value' + str(i)}
+    data = {'str': 'Hello' + str(i)}
     pro.send('topic1', value=data)
     pro.flush()
 end = time.time()

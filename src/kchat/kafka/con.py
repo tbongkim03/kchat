@@ -17,9 +17,9 @@ def read_offset():
 saved_offset = read_offset()
 consumer = KafkaConsumer(
         #'topic1',
-        bootstrap_servers=['localhost:9092'],
+        bootstrap_servers=['ec2-3-39-223-117.ap-northeast-2.compute.amazonaws.com:9092'],
         value_deserializer=lambda x: loads(x.decode('utf-8')),
-        consumer_timeout_ms=5000,
+        #consumer_timeout_ms=5000,
         #auto_offset_reset="earliest" if saved_offset is None else 'none',
         group_id="fbi", #같은그룹으로 묶고 알려준다.
         enable_auto_commit=False
@@ -59,6 +59,6 @@ def kchat_c():
         if msg.value['message'] == 'exit':
             print(msg.value['message'])
             break
-        else:
+        else:172.23.148.81
             print(f"메시지: {msg.value['message']}, 보낸시간: {msg.timestamp}")
 """
