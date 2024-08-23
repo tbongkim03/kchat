@@ -146,3 +146,15 @@ bong이 나한테 메시지를 보내고있어
 [tae] 히히히ㅣ히, 현재시간: 1724298123.0562499
 
 ```
+
+## 0.5.0 REMAKE src/kchat/kafka/pro.py & con.py..
+
+- Python chat program using Apache Kafka & Docker kafka-ui
+
+### Chages
+```python
+# pro.py code~
+
+compression_type='gzip'
+batch_size=100
+```
